@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 資料庫驅動jar -->
+    <classPathEntry location="/Users/kenli/work/workspace/workspace_CTBC_op_1/CTCBUtil/lib/ojdbc6.jar" />
+    <context id="OraleTables" targetRuntime="MyBatis3">
+    	<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
+    	
+    	<commentGenerator>  
+            <property name="suppressDate" value="true" />
+            <property name="suppressAllComments" value="true" /> 
+        </commentGenerator>
+        
+        <!-- 資料庫連接 
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+            connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+            userId="ctcbop" 
+            password="ctcbop">
+        </jdbcConnection>
+        
+        -->
+        
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+            connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+            userId="PTAPMGRSIT" 
+            password="1234">
+        </jdbcConnection>
+        
+        <!-- false：JDBC DECIMAL、NUMERIC類型解析為Integer，默認方式 -->
+        <!-- true：JDBC DECIMAL、NUMERIC類型解析為java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="true" />
+        </javaTypeResolver>
+        
+        <!-- 生成模型的包名和位置 -->
+    	<!-- （可以自訂位址，但是路徑不存在不會自動創建使用Maven生成在target目錄下，會自動創建） -->
+        <javaModelGenerator targetPackage="ebmw.model.dto"
+            targetProject="src">
+            <property name="enableSubPackages" value="true" />
+      		<!-- 從數據庫返回的值被清理前後的空格  -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        
+        <!-- 生成的映射文件包名和位置 -->
+        <sqlMapGenerator targetPackage="ebmw.model.dao.sqlMap"
+            targetProject="src">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        
+        <!-- 生成DAO的包名和位置 -->
+        <javaClientGenerator targetPackage="ebmw.model.dao"
+            targetProject="src" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+        
+        
+        <!-- 
+    	<table tableName="I18N" domainObjectName="I18N" delimitIdentifiers="true" delimitAllColumns="true"/>
+    	<table tableName="ERROR_CODE" domainObjectName="ErrorCode" delimitIdentifiers="true" delimitAllColumns="true"/>
+    	<table tableName="SPECIAL_LIST" domainObjectName="SpecialList" delimitIdentifiers="true" delimitAllColumns="true"/>
+    	
+    	<table tableName="OP_USER_INFO" domainObjectName="UserInfo" enableCountByExample="false" 
+    		enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="fasle" 
+    		delimitIdentifiers="true" delimitAllColumns="true"/>
+    	<table tableName="OP_FUNC_INFO" domainObjectName="FuncInfo" enableCountByExample="false" 
+    		enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="fasle" 
+    		delimitIdentifiers="true" delimitAllColumns="true"/>
+    	<table tableName="OP_MENU_NODE" domainObjectName="MenuNode" enableCountByExample="false" 
+    		enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="fasle" 
+    		delimitIdentifiers="true" delimitAllColumns="true"/>
+    	<table tableName="OP_ROLE_INFO" domainObjectName="RoleInfo" enableCountByExample="false" 
+    		enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="fasle" 
+    		delimitIdentifiers="true" delimitAllColumns="true"/>
+    	<table tableName="OP_FUNC_ROLE" domainObjectName="FuncRole" enableCountByExample="false" 
+    		enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="fasle" 
+    		delimitIdentifiers="true" delimitAllColumns="true"/>
+    	<table tableName="MVP_FEEDBACK" domainObjectName="MvpFeedBack" enableCountByExample="false" 
+    		enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="fasle" 
+    		delimitIdentifiers="true" delimitAllColumns="true"/>
+    	<table tableName="MENU" domainObjectName="BurgerMenu" enableCountByExample="false" 
+    		enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="fasle" 
+    		delimitIdentifiers="true" delimitAllColumns="true"/>
+    	<table tableName="OP_WORKFLOW" domainObjectName="WorkFlow" enableCountByExample="false" 
+    		enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="fasle" 
+    		delimitIdentifiers="true" delimitAllColumns="true"/>
+    	-->
+    	
+    	
+    		
+    	<table tableName="ROLE_TASK" domainObjectName="RoleTask" enableCountByExample="false" 
+    		enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="fasle" 
+    		delimitIdentifiers="true" delimitAllColumns="true"/>
+    	
+    </context>
+</generatorConfiguration>
